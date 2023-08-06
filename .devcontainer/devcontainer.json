@@ -1,0 +1,37 @@
+{
+    "name": "VariantBuildEnv",
+    "build": {
+         "dockerfile": "Dockerfile"
+    },
+    "runArgs" : ["--rm"
+    ],
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/build-user/s,type=bind,consistency=delegated",
+    "workspaceFolder": "/home/build-user/s",
+    "mounts" : [
+       "type=bind,source=${env:HOME}/.ssh,target=/home/build-user/.ssh",
+       "type=bind,source=${localWorkspaceFolder}/../CPM_DOWNLOADS,target=/home/build-user/CPM_DOWNLOADS",
+    ],
+    "customizations": {"vscode": {"settings": {
+       "terminal.integrated.shell.linux": "/bin/zsh",
+       "terminal.integrated.detectLocale": "off"
+    },
+    "extensions": [
+      "eamodio.gitlens",
+      "ms-vscode.cpptools",
+      "twxs.cmake",
+      "ms-vscode.cmake-tools",
+      "jebbs.plantuml",
+      "plex.vscode-protolint",
+      "xaver.clang-format",
+      "abronan.capnproto-syntax",
+      "be5invis.toml",
+      "mitaki28.vscode-clang",
+      "hbenl.vscode-test-explorer",
+      "redhat.vscode-xml",
+      "shd101wyy.markdown-preview-enhanced",
+      "sonarsource.sonarlint-vscode"
+    ]}},
+    "containerEnv": {
+       "CPM_SOURCE_CACHE": "/home/build-user/CPM_DOWNLOADS"
+    }
+ }
