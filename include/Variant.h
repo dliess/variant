@@ -63,6 +63,8 @@ auto match(Variant&& v, CBs&&... cbs)
         dl::overload{ std::forward<decltype(cbs)>(cbs)... }, std::forward<decltype(v)>(v));
 }
 
+using monostate = VARIANT_NS::monostate;
+
 } // namespace dl
 
 #define R_SWITCH(variant) dl::match(variant,
