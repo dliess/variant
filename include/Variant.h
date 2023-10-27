@@ -9,6 +9,8 @@
 #define VARIANT_NS std
 #endif
 
+#include <cstddef>
+
 namespace dl
 {
 
